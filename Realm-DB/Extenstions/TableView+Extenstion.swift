@@ -23,31 +23,31 @@ extension ViewController:UITableViewDataSource,UITableViewDelegate {
         updateData(indexPath: indexPath)
         
     }
-
+    
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         
-         let deleteAction = UIContextualAction(style: .destructive, title: "Delete") {  (contextualAction, view, boolValue) in
+        let deleteAction = UIContextualAction(style: .destructive, title: "Delete") {  (contextualAction, view, boolValue) in
             
-             self.deleteDataFromDB(indexPath: indexPath)
-         }
-
-         let editAction = UIContextualAction(style: .normal, title: "Edit") {  (contextualAction, view, boolValue) in
-             self.updateData(indexPath: indexPath)
-         }
-         editAction.backgroundColor = .purple
-         let swipeActions = UISwipeActionsConfiguration(actions: [deleteAction,editAction])
-
-         return swipeActions
-     }
+            self.deleteDataFromDB(indexPath: indexPath)
+        }
+        
+        let editAction = UIContextualAction(style: .normal, title: "Edit") {  (contextualAction, view, boolValue) in
+            self.updateData(indexPath: indexPath)
+        }
+        editAction.backgroundColor = .purple
+        let swipeActions = UISwipeActionsConfiguration(actions: [deleteAction,editAction])
+        
+        return swipeActions
+    }
     
     
-/*********************************************************************************/
-     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-         return true
-     }
-
-   
-
+    /*********************************************************************************/
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    
+    
     
 }
