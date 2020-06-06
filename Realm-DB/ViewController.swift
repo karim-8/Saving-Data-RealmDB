@@ -31,7 +31,7 @@ class ViewController: UIViewController {
     
    
     @IBAction func addDataBtn(_ sender: Any) {
-        saveData(userName: "New Karim", usweLastName: "New", age: 100)
+        saveData(userName: textFieldHolder.text!, usweLastName: "New", age: 100)
     }
     
         func saveData(userName:String,usweLastName:String,age:Int){
@@ -45,6 +45,8 @@ class ViewController: UIViewController {
             realm.beginWrite()
             realm.add(data)
             try! realm.commitWrite()
+            
+            dataTableView.reloadData()
         }
         func fetchData(){
             //define the dataSource
